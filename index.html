@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-commerce</title>
@@ -8,66 +8,83 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link href="styles.css" rel="stylesheet">
   </head>
-<body>
+  <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
+          <a class="navbar-brand" href="#">Dulces miradas</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link active" aria-current="page" href="#">Inicio</a>
               </li>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown
-                </a>
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Opciones</a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><a class="dropdown-item" href="#">Cumpleaños</a></li>
+                  <li><a class="dropdown-item" href="#">Comunion</a></li>
+                  <li><a class="dropdown-item" href="#">Casamiento</a></li>
+                  <li><a class="dropdown-item" href="#">Torta sorpresa</a></li>
+                  <li><a class="dropdown-item" href="#">Minis</a></li>
                   <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  <li><a class="dropdown-item" href="#">Otras</a></li>
                 </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                <a class="nav-link" href="#">Sobre nosotros</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Mi cuenta</a>
               </li>
             </ul>
             <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
+              <input class="form-control me-2" type="search" placeholder="Torta de..." aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Buscar</button>
             </form>
           </div>
         </div>
     </nav>
-    <div class="contenedor">
-      <div class="card" style="width: 18rem;">
-        <img src="https://media.istockphoto.com/id/1283744755/es/foto/pastel-de-boda-de-tres-niveles-con-hojas-de-eucali%C3%B1as-y-peon%C3%ADas-rosas-estilo-contempor%C3%A1neo.jpg?s=612x612&w=0&k=20&c=5klra4np10BVYi5XBZX9reJPIWx4s_ewojLCnHZPpVM=" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Casamiento</h5>
-          <p class="card-text">Tortas para casamiento personalizadas.</p>
-          <a href="#" class="btn btn-primary">Ver mas</a>
+    <div class="row row-cols-4">
+      <div class="col">
+        <div class="card" style="width: 18rem;" >
+          <img src="https://media.istockphoto.com/id/1283744755/es/foto/pastel-de-boda-de-tres-niveles-con-hojas-de-eucali%C3%B1as-y-peon%C3%ADas-rosas-estilo-contempor%C3%A1neo.jpg?s=612x612&w=0&k=20&c=5klra4np10BVYi5XBZX9reJPIWx4s_ewojLCnHZPpVM=" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Casamiento</h5>
+            <p class="card-text">Tortas para casamiento personalizadas.</p>
+            <a href="#" class="btn btn-primary">Ver mas</a>
+          </div>
         </div>
       </div>
-      <div class="card" style="width: 18rem;">
-        <img src="https://i.pinimg.com/originals/c5/1c/2a/c51c2a844bb8026cc3729ce0019bc074.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Cumpleaños</h5>
-          <p class="card-text">Decoradas con dedicacion, ideales para fiestas.</p>
-          <a href="#" class="btn btn-primary">Ver mas</a>
+      <div class="col">
+        <div class="card" style="width: 18rem;">
+          <img src="https://i.pinimg.com/originals/c5/1c/2a/c51c2a844bb8026cc3729ce0019bc074.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Cumpleaños</h5>
+            <p class="card-text">Decoradas con dedicacion, ideales para fiestas.</p>
+            <a href="#" class="btn btn-primary">Ver mas</a>
+          </div>
         </div>
       </div>
-      <div class="card" style="width: 18rem;">
-        <img src="https://acdn.mitiendanube.com/stores/949/267/products/cake-sorpresa-mini-b1-4135d35cba956c04a916060541485982-1024-1024.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Mini cakes</h5>
-          <p class="card-text">Tortas mini, ideales para regalar.</p>
-          <a href="#" class="btn btn-primary">Ver mas</a>
+      <div class="col">
+        <div class="card" style="width: 18rem;">
+          <img src="https://es.cravingsjournal.com/wp-content/uploads/2020/02/mini-torta-red-velvet-12.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Mini cakes</h5>
+            <p class="card-text">Tortas mini, ideales para regalar.</p>
+            <a href="#" class="btn btn-primary">Ver mas</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card" style="width: 18rem;">
+          <img src="https://instagram.faep8-2.fna.fbcdn.net/v/t39.30808-6/448535847_18422106037069173_8767827640098372852_n.jpg?stp=dst-jpg_e15&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xNDQweDE4MDAuc2RyLmYzMDgwOC5kZWZhdWx0X2ltYWdlIn0&_nc_ht=instagram.faep8-2.fna.fbcdn.net&_nc_cat=109&_nc_ohc=PgxeXT1qUZYQ7kNvgF7tl4T&_nc_gid=57b058c9ce0f4863a292a616a10b35d4&edm=APs17CUAAAAA&ccb=7-5&ig_cache_key=MzM5Mjc0NDk5NTIzODg4NzIxNQ%3D%3D.2-ccb7-5&oh=00_AYDemlBLjFEkrH8OfDSKiF5Mv1VRJyd_eMJ8KQeYrxkgRg&oe=66DDACA3&_nc_sid=10d13b" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Tortas sorpresa</h5>
+            <p class="card-text">Regalar algo divertido, y encima rico, es siempre una buena opcion.</p>
+            <a href="#" class="btn btn-primary">Ver mas</a>
+          </div>
         </div>
       </div>
     </div>
@@ -75,5 +92,5 @@
     <script>
       console.log("hola como estan?")
     </script>
-</body>
+  </body>
 </html>
