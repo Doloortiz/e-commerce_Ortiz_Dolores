@@ -1,4 +1,6 @@
-class Producto {
+let id = parseInt(window.location.search.split("="))
+
+class producto {
     constructor(titulo, detalle, precio, stock, imagen){
         this.titulo = titulo;
         this.detalle = detalle;
@@ -7,60 +9,86 @@ class Producto {
         this.imagen = imagen;
     }
 }
-const id = window.location.search.split("=")[1];
 
 const data = [
     {
+        "brand": "Bmw",
         "id": 1,
+        "category": "Moderno",
         "price": "$6.59",
         "stock": "139",
-        "detail": "Maroon"
+        "detail": "Azul"
       }, {
+        "brand": "Alfa Romeo",
         "id": 2,
+        "category": "Moderno",
         "price": "$6.31",
         "stock": "9712",
-        "detail": "Violet"
+        "detail": "Rojo"
       }, {
+        "brand": "Mercedes Benz",
         "id": 3,
+        "category": "Moderno",
         "price": "$2.27",
         "stock": "9",
-        "detail": "Maroon"
+        "detail": "Gris oscuro"
       }, {
+        "brand": "Audi",
         "id": 4,
+        "category": "Moderno",
         "price": "$6.70",
         "stock": "4",
-        "detail": "Fuscia"
+        "detail": "Negro"
       }, {
+        "brand": "MG MGA",
         "id": 5,
+        "category": "Antiguo",
         "price": "$5.39",
         "stock": "91",
-        "detail": "Turquoise"
+        "detail": "Rojo"
       }, {
+        "brand": "Lamborghini",
         "id": 6,
+        "category": "Moderno",
         "price": "$2.62",
         "stock": "9",
-        "detail": "Orange"
+        "detail": "Negro"
       }, {
+        "brand": "Chevrolet",
         "id": 7,
+        "category": "Antiguo",
         "price": "$8.30",
         "stock": "7",
-        "detail": "Indigo"
+        "detail": "Turquesa"
       }, {
+        "brand": "Dodge Challenger",
         "id": 8,
+        "category": "Moderno",
         "price": "$2.88",
         "stock": "555",
-        "detail": "Violet"
+        "detail": "Negro"
       }, {
+        "brand": "Maserati",
         "id": 9,
+        "category": "Moderno",
         "price": "$2.30",
         "stock": "56",
-        "detail": "Orange"
-      }, {
-        "id": 10,
-        "price": "$7.97",
-        "stock": "5",
-        "detail": "Puce"
+        "detail": "Negro"
       }
     ];
 
-const producto = data.find((prod) => prod.id == id);
+  const prodEncontrado = data.find((producto) => producto.id === id);
+
+  const card = `
+     <div class="card" style="width: 18rem;">
+        <img src="https://66d9ee6caa07a954166f10ed--gregarious-melba-cacdba.netlify.app/${producto.id}.jpg" class="card-img-top" alt="..."/>
+        <div class="card-body">
+            <h2 class="card-brand">${producto.brand}</h2>
+            <h5 class="card-price">Precio: ${producto.price}</h5>
+            <p class="card-text>Stock: ${producto.stock}</p>
+            <p class="card-text>Detalle: ${producto.detail}</p>
+            <a href="producto.html?prod=${producto.id}" class="btn btn-primary">Ver mas</a>
+        </div>
+      </div>`
+
+  document.querySelector(".container").innerHTML = card;
