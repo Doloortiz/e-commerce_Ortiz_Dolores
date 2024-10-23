@@ -1,5 +1,5 @@
 const h1 = document.querySelector("h1");
-h1.innerText = "Productos";
+h1.innerText = "Sobre Ruedas";
 
 let data = [
 {
@@ -68,7 +68,7 @@ let data = [
   }
 ];
 
-function cards (data) {
+function cards () {
 
 let cards = data.map((producto) => `
     <div class="card" style="width: 18rem;">
@@ -84,30 +84,52 @@ let cards = data.map((producto) => `
 
 document.querySelector(".container").innerHTML = cards.join('');
 }
-cards(data);
+cards();
 
-const buscador = document.querySelector("#inputSearch");
-const buttonSearch = document.querySelector("#search");
-const buttonReset = document.querySelector("#reset");
+function buscador() {
+  let inputBuscador = document.querySelector(".inputSearch");
 
-//buscar productos
-buttonSearch.addEventListener("click", () => {
-  const busqueda = buscador.value.trim().toLowerCase();
-  const filterData = data.filter(producto => producto.brand.toLowerCase () === busqueda);
-})
+  let filterData = data.filter((producto) => producto.brand == inputSearch.value);
+  let cards = filterData.map((producto) => `<div class="card" style="width: 18rem;">
+  <img src="https://66d9ee6caa07a954166f10ed--gregarious-melba-cacdba.netlify.app/${producto.id}.jpg" class="card-img-top" alt="..."/>
+  <div class="card-body">
+    <h5 class="card-title">${producto.brand}</h5>
+    <p class="card-text">${producto.detail}</p>
+    <a href="producto.html?prod=${producto.id}" class="btn btn-primary">Ver más</a>
+    <p class="card-text">${producto.price}</p>
+    <p class="card-text">${producto.stock}</p>
+    <p class="card-text">${producto.category}</p>
+    <a href="./producto.html?id=${producto.id}" class="."><button></button></a>
+  </div>
+</div>`);
+  document.querySelector(".container").innerHTML = cards.join("");
 
-//
-if (filtrarData.lenght > 0) {
-  cards(filterData);
-} else {
- document.querySelector("section").innerText = "producto no encontrado"
-}
+  };
 
-//limpiar busqueda
-buttonReset.addEventListener("click", () => {
-  buscador.value = '';
-  cards(data);
-})
+let botonBuscador = document.querySelector(".search");  
+botonBuscador.addEventListener("click", buscador);
 
+let botonCategory = document.querySelectorAll(".category");
+for (const botonData of botonCategory) {
+  botonData.addEventListener("click", () => {
+    botones(botonData.innerText);
+  })
+} 
 
-
+function botones(category) {
+  let dataFiltered = data.filter((producto) => producto.category == category);
+  let busqueda = dataFiltered.map((producto) => {
+  if(producto.category === category){
+   return `<div class="card" style="width: 18rem;">
+  <img src="https://66d9ee6caa07a954166f10ed--gregarious-melba-cacdba.netlify.app/${producto.id}.jpg" class="card-img-top" alt="..."/>
+  <div class="card-body">
+    <h5 class="card-title">${producto.brand}</h5>
+    <p class="card-text">${producto.detail}</p>
+    <a href="producto.html?prod=${producto.id}" class="btn btn-primary">Ver más</a>
+    <p class="card-text">${producto.price}</p>
+    <p class="card-text">${producto.stock}</p>
+    <p class="category">${producto.category}</p>
+  </div>
+</div>`} 
+  }
+)};

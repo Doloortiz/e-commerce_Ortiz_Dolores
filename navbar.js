@@ -9,7 +9,7 @@ let menuAutos = []
 for (let item of categorias) {
   menuAutos.push(
     <li class="nav-item">
-      <a class="nav-link" id="category" data-category="${item.ategory}" href="#"></a>
+      <a class="nav-link" id="category" data-category="${item.category}"></a>
     </li>
   );
 }

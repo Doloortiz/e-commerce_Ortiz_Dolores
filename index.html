@@ -12,10 +12,16 @@
   <body>
     <header></header>
     <h1></h1>
-    <div>
-      <input id="inputSearch">
-      <button id="search">Buscar</button>
-      <button id="reset">X</button>
+    <div class="producto">
+      <ul class="category col-6">
+          <li class="item-category" onclick="filterCategory('Productos')">Productos</li>
+          <li class="item-category" onclick="filterCategory('Moderno')"class="category">Modernos</li>
+          <li class="item-category" onclick="filterCategory('Antiguo')"class="category">Antiguos</li>
+      </ul>
+      <div class="col-6">
+      <input class="inputSearch">
+      <button class="search">Buscar</button>
+      <button class="reset">X</button>
     </div>
     <section class="container"></section>
     <script src="main.js"></script>
