@@ -89,6 +89,19 @@ const data = [
             <p class="card-text>Detalle: ${producto.detail}</p>
             <a href="producto.html?prod=${producto.id}" class="btn btn-primary">Ver mas</a>
         </div>
-      </div>`
+
+      ${localStorage.getItem("email") ? 
+          `<button class="btn primary-btn">Comprar ahora</button>
+          <button class="btn secondary-btn">Añadir</button>
+          <div class="input-group">
+            <button class="btn btn-outline-secondary" type="button">+</button>
+            <input type="text" class="form-control" placeholder="0" aria-label="Recipient's username with two button addons">
+            <button class="btn btn-outline-secondary" type="button">-</button>
+          </div>` 
+          : 
+          `<a href="./login.html"><button type="button" class="btn btn-primary btn-lg">Iniciar sesión para comprar</button></a>`
+      }
+
+    </div>`;
 
   document.querySelector(".container").innerHTML = card;

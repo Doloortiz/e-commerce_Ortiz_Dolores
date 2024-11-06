@@ -25,8 +25,18 @@ let menu =`
             <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
             <button class="btn btn-outline-success" type="submit">Buscar</button>
         </form>
+        ${
+          localStorage.getItem("email") ? 
+            `<span>${localStorage.getItem("email")} </span> | <span onclick="logout()">Cerrar sesion </span>`
+            : "< a href='./login.html'><span>Iniciar sesion</span></a>"
+        }
     </div>
   </nav>;`
 
 //header.innerHTML = menu.join().replaceAll(",","")
 document.querySelector("header").innerHTML = menu.join("")
+
+function logout () {
+  localStorage.clear()
+  location.href = "./index.html"
+}
