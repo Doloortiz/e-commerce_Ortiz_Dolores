@@ -68,10 +68,9 @@ let data = [
   }
 ];
 
-function cards () {
-
-let cards = data.map((producto) => `
-    <div class="card" style="width: 18rem;">
+let mostrarCards = (a) => {
+  const cards = a.map((producto) =>
+    ` <div class="card" style="width: 18rem;">
         <img src="https://66d9ee6caa07a954166f10ed--gregarious-melba-cacdba.netlify.app/${producto.id}.jpg" class="card-img-top" alt="..."/>
          <div class="card-body">
             <h2 class="card-brand">${producto.brand}</h2>
@@ -84,7 +83,7 @@ let cards = data.map((producto) => `
 
 document.querySelector(".container").innerHTML = cards.join('');
 }
-cards();
+mostrarCards(data);
 
 function buscador() {
   let inputBuscador = document.querySelector(".inputSearch");

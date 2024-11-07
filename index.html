@@ -10,13 +10,20 @@
     <link rel="icon" type="image/x-icon" href="https://cdn.pixabay.com/photo/2015/10/01/17/17/car-967387_1280.png">
   </head>
   <body>
-    <header></header>
+    <header>
+      <div class="container">
+        <div class="navbar">
+            <nav></nav>
+            <ul class="navbar-nav session"></ul>
+        </div>
+    </div>
+    </header>
     <h1></h1>
     <div class="producto">
       <ul class="category col-6">
-          <li class="item-category" onclick="filterCategory('Productos')">Productos</li>
-          <li class="item-category" onclick="filterCategory('Moderno')"class="category">Modernos</li>
-          <li class="item-category" onclick="filterCategory('Antiguo')"class="category">Antiguos</li>
+          <button class="item-category" onclick="filterCategory('Productos')">Productos</button>
+          <button class="item-category" onclick="filterCategory('Moderno')"class="category">Modernos</button>
+          <button class="item-category" onclick="filterCategory('Antiguo')"class="category">Antiguos</button>
       </ul>
       <div class="col-6">
       <input class="inputSearch">

@@ -1,16 +1,15 @@
-let categorias = [
+let nav = [
     {texto: "Inicio", href: "index.html"},
     {texto: "Productos", href: "producto.html"},
     {texto: "Sobre nosotros", href: "#"}
 ]
 
 let menuAutos = []
-
-for (let item of categorias) {
+for (let item of nav) {
   menuAutos.push(
-    <li class="nav-item">
-      <a class="nav-link" id="category" data-category="${item.category}"></a>
-    </li>
+    `<li class="nav-item">
+      <a class="item-nav" id="category" data-category="${item.category}"></a>
+    </li>`
   );
 }
 
@@ -25,18 +24,18 @@ let menu =`
             <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
             <button class="btn btn-outline-success" type="submit">Buscar</button>
         </form>
-        ${
-          localStorage.getItem("email") ? 
-            `<span>${localStorage.getItem("email")} </span> | <span onclick="logout()">Cerrar sesion </span>`
+        ${localStorage.getItem("email") ? 
+            `<li><span>${localStorage.getItem("email")}</span></li>
+            <span>|</span>
+            <li><img height="25" src="https://github.com/julioavantt/guayerd_login/blob/main/cart.png?raw=true" alt="Comprar"/><b id="quantity">${localStorage.getItem("quantity")}</b></li>
+            <span>|</span>
+            <li><span onclick="logOut()">Cerrar Sesión</span></li>` 
             : "< a href='./login.html'><span>Iniciar sesion</span></a>"
         }
     </div>
   </nav>;`
 
-//header.innerHTML = menu.join().replaceAll(",","")
-document.querySelector("header").innerHTML = menu.join("")
-
-function logout () {
+function logOut () {
   localStorage.clear()
   location.href = "./index.html"
 }

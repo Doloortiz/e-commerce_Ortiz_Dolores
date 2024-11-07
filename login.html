@@ -21,7 +21,7 @@
   </style>
   <title>Document</title>
 </head>
-<body id="login">
+<body>
     <form>
         <div class="mb-3">
             <label class="form-label">Email address</label>
@@ -33,18 +33,6 @@
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-    <script>
-        const userLogin1 = {email: "carlos123@gmail.com", password: "123"}
-        let form = document.querySelector("form");
-        form.addEventListener("submit", (e) => {
-            e.preventDefault()
-            if (userLogin1.email === form.elements.email.value && userLogin1.password === form.elements.password.value) {
-                localStorage.setItem("email", form.elements.email.value)
-                location.href = "./index.html"
-            }else {
-                alert("incorrecto")
-            }
-        })
-    </script>
+    <script src="login.js"></script>
 </body>
 </html>

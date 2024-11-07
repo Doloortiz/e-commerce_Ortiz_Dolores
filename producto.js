@@ -1,14 +1,4 @@
-let id = parseInt(window.location.search.split("="))
-
-class producto {
-    constructor(titulo, detalle, precio, stock, imagen){
-        this.titulo = titulo;
-        this.detalle = detalle;
-        this.precio = precio;
-        this.stock = stock;
-        this.imagen = imagen;
-    }
-}
+let elemento = window.location.search.split("=")[1];
 
 const data = [
     {
@@ -77,31 +67,73 @@ const data = [
       }
     ];
 
-  const prodEncontrado = data.find((producto) => producto.id === id);
+  const prodEncontrado = data.find((data) => data.id === elemento);
 
   const card = `
      <div class="card" style="width: 18rem;">
         <img src="https://66d9ee6caa07a954166f10ed--gregarious-melba-cacdba.netlify.app/${producto.id}.jpg" class="card-img-top" alt="..."/>
         <div class="card-body">
-            <h2 class="card-brand">${producto.brand}</h2>
-            <h5 class="card-price">Precio: ${producto.price}</h5>
-            <p class="card-text>Stock: ${producto.stock}</p>
-            <p class="card-text>Detalle: ${producto.detail}</p>
-            <a href="producto.html?prod=${producto.id}" class="btn btn-primary">Ver mas</a>
+            <h2 class="card-brand">${prodEncontrado.brand}</h2>
+            <h5 class="card-price">Precio: ${prodEncontrado.price}</h5>
+            <p class="card-text>Stock: ${prodEncontrado.stock}</p>
+            <p class="card-text>Detalle: ${prodEncontrado.detail}</p>
+            <a href="producto.html?prod=${prodEncontrado.id}" class="btn btn-primary">Ver mas</a>
         </div>
 
       ${localStorage.getItem("email") ? 
-          `<button class="btn primary-btn">Comprar ahora</button>
-          <button class="btn secondary-btn">Añadir</button>
-          <div class="input-group">
-            <button class="btn btn-outline-secondary" type="button">+</button>
-            <input type="text" class="form-control" placeholder="0" aria-label="Recipient's username with two button addons">
-            <button class="btn btn-outline-secondary" type="button">-</button>
-          </div>` 
+          `<div class="input-group">
+            <button class="btn btn-outline-secondary" type="button" onclick="increaseItem()">+</button>
+            <input type="number" class="form-control text-center" value="1">
+            <button class="btn btn-outline-secondary" type="button" onclick="decreaseItem()">-</button>
+          </div>
+          <a href class="btn primary-btn" onclick="addItems()">Comprar ahora</a>` 
           : 
           `<a href="./login.html"><button type="button" class="btn btn-primary btn-lg">Iniciar sesión para comprar</button></a>`
       }
-
     </div>`;
 
   document.querySelector(".container").innerHTML = card;
+
+
+  const counter = document.querySelector("input")
+
+  function increaseItem() {
+    if (Number(counter.value) < product.stock) {
+      counter.value = Number(counter.value) + 1;
+    }
+  }
+
+  function decreaseItem() {
+    if (Number(counter.value) > 1) {
+      counter.value = Number(counter.value) - 1
+    }
+  }
+
+  function addItems() {
+    const cart = JSON.parse(localStorage.getItem("cart"))
+    const idProduct = Number(window.location.search.split("=")[1])
+    const product = data.find(item => item.id === idProduct)
+    const existeIdCart = cart.some(item => item.product.id === idProduct)
+
+    if(existeIdCart) {
+      cart = cart.map(item => {
+        if(item.product.id === idProduct) {
+          return { ...item, quantity: item.quantity + Number(counter.value) }
+        } else {
+          return item
+        }
+      })
+      } else {
+        cart.push({product: product, quantity: Number(counter,value) })
+      }
+
+      localStorage.setItem("cart", JSON.stringify(cart))
+
+      let quantity = cart.reduce((acumulado, actual) => acumulado + actual.quantity, 0)
+      localStorage.setItem("quantity", quantity)
+      const quantityTag = document.querySelector("#quantity")
+
+      quantityTag.innerText = quantity
+
+      counter.value = "1"
+    }
