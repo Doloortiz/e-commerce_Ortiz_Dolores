@@ -25,9 +25,10 @@ let menu =`
             <button class="btn btn-outline-success" type="submit">Buscar</button>
         </form>
         ${localStorage.getItem("email") ? 
-            `<li><span>${localStorage.getItem("email")}</span></li>
+            `<li>Hola, ${localStorage.getItem("email")}</li>
             <span>|</span>
-            <li><img height="25" src="https://github.com/julioavantt/guayerd_login/blob/main/cart.png?raw=true" alt="Comprar"/><b id="quantity">${localStorage.getItem("quantity")}</b></li>
+            <a href="./cart.html">
+            <li><img height="25" src="https://github.com/julioavantt/guayerd_login/blob/main/cart.png?raw=true" alt="Comprar"/><b id="quantity">${localStorage.getItem("quantity")}</b></li></a>
             <span>|</span>
             <li><span onclick="logOut()">Cerrar Sesión</span></li>` 
             : "< a href='./login.html'><span>Iniciar sesion</span></a>"

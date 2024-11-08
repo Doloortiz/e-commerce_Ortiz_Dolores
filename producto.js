@@ -86,7 +86,9 @@ const data = [
             <input type="number" class="form-control text-center" value="1">
             <button class="btn btn-outline-secondary" type="button" onclick="decreaseItem()">-</button>
           </div>
-          <a href class="btn primary-btn" onclick="addItems()">Comprar ahora</a>` 
+          <a class="btn primary-btn" onclick="addItems()">
+          <span class="material-symbols-outlined">shopping_cart</span>
+          Agregar al carrito</a>` 
           : 
           `<a href="./login.html"><button type="button" class="btn btn-primary btn-lg">Iniciar sesión para comprar</button></a>`
       }
@@ -98,7 +100,7 @@ const data = [
   const counter = document.querySelector("input")
 
   function increaseItem() {
-    if (Number(counter.value) < product.stock) {
+    if (Number(counter.value) < prodEncontrado.stock) {
       counter.value = Number(counter.value) + 1;
     }
   }
@@ -110,6 +112,7 @@ const data = [
   }
 
   function addItems() {
+    function add() {
     const cart = JSON.parse(localStorage.getItem("cart"))
     const idProduct = Number(window.location.search.split("=")[1])
     const product = data.find(item => item.id === idProduct)
@@ -128,12 +131,30 @@ const data = [
       }
 
       localStorage.setItem("cart", JSON.stringify(cart))
-
       let quantity = cart.reduce((acumulado, actual) => acumulado + actual.quantity, 0)
       localStorage.setItem("quantity", quantity)
       const quantityTag = document.querySelector("#quantity")
-
       quantityTag.innerText = quantity
-
       counter.value = "1"
-    }
+
+      Toastify({
+        text: "Agregaste producto/s al carrito",
+        duration: 3000
+      }).showToast();
+  }
+    
+      Swal.fire({
+        text:"Estas seguro de agregar el producto al carrito?",
+        confirmButtonText: "si",
+        cancelButtonText: "no",
+        showCancelButton: true,
+        showCloseButton: true,
+        confirmButtonColor: "#06f",
+        cancelButtonColor: "#DB5079",
+      }).then(result => {  //then: si estas confirmando hace algo, si no no hagas nada
+        if (result.isCondirmed) {
+          add()
+        }
+      })
+  
+  }
