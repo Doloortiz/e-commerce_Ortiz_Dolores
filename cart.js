@@ -89,3 +89,32 @@ function removeItem(id) {
     const quantityTag = document.querySelector("#quantity")
     quantityTag.innerText = quantity
 }
+
+function checkout () {
+    const recurso = {
+        user: localStorage.getItem("email"),
+        items: JSON.parse(localStorage.getItem("cart")),
+    }
+
+    fetch("",
+    {
+        method: "POST",
+        body: JSON.stringify(recurso),
+    }
+)
+    .then(response => response.json())
+    .then(data => {
+        Swal.fire({
+            text: `Gracias ${data.user}, hemos registrado tu orden numero ${data.id}`,
+            confirmButtonText: "Si",
+            ConfirmButtonColor: "green",
+        })
+        clearCart()
+    })
+    .catch(() =>
+        Swal.fire({
+            text: `Ups, hubo un problema, intente mas tarde`,
+            confirmButtonText: "Si",
+            ConfirmButtonColor: "green",
+        })
+)}

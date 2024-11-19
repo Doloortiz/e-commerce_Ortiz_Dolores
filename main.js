@@ -83,7 +83,14 @@ let mostrarCards = (a) => {
 
 document.querySelector(".container").innerHTML = cards.join('');
 }
-mostrarCards(data);
+// mostrarCards(data);
+const promise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve("ok")
+  },3000 )
+})
+
+promise.then (() => mostrarCards(data))
 
 function buscador() {
   let inputBuscador = document.querySelector(".inputSearch");
